@@ -11,37 +11,44 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Link, useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from '@mui/icons-material/Info';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
+import InfoIcon from "@mui/icons-material/Info";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 
 type Props = {
   drawerWidth: number;
   content: React.ReactNode;
-}; 
+};
 
 const Navbar: React.FC<Props> = (props) => {
-    const { drawerWidth, content } = props;
-    const location = useLocation();
-    const path = location.pathname;
+  const { drawerWidth, content } = props;
+  const location = useLocation();
+  const path = location.pathname;
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: 'white', 
-         }}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backgroundColor: "white",
+        }}
       >
-        <Toolbar sx={{
-          justifyContent: 'center', 
-        }}>
-          <Typography variant="h6" noWrap component="div"
+        <Toolbar
           sx={{
-            color: 'green',          
-            fontWeight: 'bold',
-            fontSize: '1.5rem',       
-          }}>
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{
+              color: "green",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+            }}
+          >
             Price Collector
           </Typography>
         </Toolbar>
@@ -70,21 +77,29 @@ const Navbar: React.FC<Props> = (props) => {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemButton component={Link} to="/about" selected={"/about" === path}>
+              <ListItemButton
+                component={Link}
+                to="/create"
+                selected={"/create" === path}
+              >
+                <ListItemIcon>
+                  <BorderColorIcon />
+                </ListItemIcon>
+
+                <ListItemText primary={"Add Item"} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton
+                component={Link}
+                to="/about"
+                selected={"/about" === path}
+              >
                 <ListItemIcon>
                   <InfoIcon />
                 </ListItemIcon>
 
                 <ListItemText primary={"About"} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem>
-              <ListItemButton component={Link} to="/create" selected={"/create" === path}>
-                <ListItemIcon>
-                  <BorderColorIcon />
-                </ListItemIcon>
-
-                <ListItemText primary={"Create"} />
               </ListItemButton>
             </ListItem>
           </List>
@@ -96,6 +111,6 @@ const Navbar: React.FC<Props> = (props) => {
       </Box>
     </Box>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

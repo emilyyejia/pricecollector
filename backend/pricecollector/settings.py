@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'pricecollector.wsgi.application'
 DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'catcollector',
+      'NAME': 'pricecollector',
       'USER': os.environ['DB_USER'],
       'PASSWORD': os.environ['DB_PW'],
       'HOST': os.environ['DB_HOST'],

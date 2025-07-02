@@ -59,7 +59,7 @@ const Create: React.FC = () => {
             fontWeight: "bold",
           }}
         >
-          Track a Item
+          Track an Item
         </Typography>
       </Box>
 
